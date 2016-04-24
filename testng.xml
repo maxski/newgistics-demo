@@ -1,0 +1,10 @@
+<suite name="Demo" verbose="3">
+    <test name="SearchResults">
+        <parameter name="destination"  value="New York City"/>
+        <parameter name="startDate"  value="2016-5-1"/>
+        <parameter name="endDate"  value="2016-5-5"/>
+        <classes>
+            <class name="com.ibs.SearchResultsTest"/>
+        </classes>
+    </test>
+</suite>
