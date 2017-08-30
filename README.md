@@ -1,6 +1,6 @@
-# booking-demo
-*Run:* mvn test
+# yaypay-demo
+*Run:* mvn clean test -Dbrowser=chrome -Dselenide.baseUrl=https://www.demo.yaypay.com/app/login
 
-*Reports:* standart TestNG report located in target/surefire-reports folder
+*Reports:* open file located by relative path target/surefire-reports/html/index.html
 
-*Known issues:* Tests are written for old Calendar used for entering dates (separate Day and Month fields) in Booking.com search. If test failed, please re-run again. Seems, different server instances have different versions.
+*Known issues:* If test failed, before running new one, please make sure that all chromedriver instances are killed
