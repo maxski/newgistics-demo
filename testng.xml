@@ -1,10 +1,15 @@
-<suite name="Demo" verbose="3">
-    <test name="SearchResults">
-        <parameter name="destination"  value="New York City"/>
-        <parameter name="startDate"  value="2016-5-1"/>
-        <parameter name="endDate"  value="2016-5-5"/>
+<suite name="Yaypay Demo" verbose="3">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
+    <test name="Create Collection Workflow">
+        <parameter name="email"  value="hnfbr@slipry.net"/>
+        <parameter name="password"  value="1VN2IC"/>
+        <parameter name="username"  value="Petr Petrov"/>
+        <parameter name="defaultWorkflow"  value="Custom workflow"/>
+        <parameter name="workflow"  value="New workflow"/>
         <classes>
-            <class name="com.ibs.SearchResultsTest"/>
+            <class name="com.yaypay.tests.CollectionManageTest"/>
         </classes>
     </test>
 </suite>
