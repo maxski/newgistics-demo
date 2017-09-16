@@ -3,6 +3,10 @@ package com.newgistics.tests.api;
 import com.newgistics.pages.LeftMenuPage;
 import com.newgistics.pages.LoginFormPage;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.config.LogConfig;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.matcher.RestAssuredMatchers.*;
 import io.restassured.path.json.config.JsonPathConfig;
 import io.restassured.specification.RequestSpecification;
@@ -22,26 +26,14 @@ import static org.hamcrest.core.Is.is;
  * Created by maxymkr on 9/16/2017.
  */
 public class APITest {
+
     RequestSpecification request;
-    ResponseSpecification response;
-    String path;
 
-    @Parameters({"baseUri", "basePath"})
+    @Parameters({"baseUri"})
     @BeforeSuite
-    public void config(String baseUri, String basePath) {
-        RestAssured.baseURI = baseUri;
-        RestAssured.basePath = basePath;
-
+    public void config(String baseUri) {
         request = RestAssured.given()
+                .baseUri(baseUri) // base test
                 .log().uri(); // log only uri
-
-        response = RestAssured.given()
-                .then().log().body(); // log only response
     }
-
-
-    protected void logResponse(){
-        Reporter.log("<b>Response</b>");
-    }
-
 }
