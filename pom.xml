@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>yaypay-demo</groupId>
-    <artifactId>yaypay-demo</artifactId>
+    <groupId>newgistics-demo</groupId>
+    <artifactId>newgistics-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
         <dependency>
@@ -34,6 +34,13 @@
             <artifactId>guice</artifactId>
             <version>3.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.0.3</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>
@@ -44,7 +51,7 @@
                     <version>2.20</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                            <suiteXmlFile>api.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

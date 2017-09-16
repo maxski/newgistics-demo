@@ -1,6 +1,6 @@
-package com.yaypay.tests;
+package com.newgistics.tests;
 
-import com.yaypay.driver.Driver;
+import com.newgistics.driver.Driver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 

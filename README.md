@@ -1,4 +1,4 @@
-# yaypay-demo
+# newgistics-demo
 *Run:* mvn clean test -Dbrowser=chrome -Dselenide.baseUrl=https://www.demo.yaypay.com/app/login
 
 *Reports:* open file located by relative path target/surefire-reports/html/index.html

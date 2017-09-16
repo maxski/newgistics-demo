@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="API tests" verbose="3">
+    <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
+	<parameter name="baseUri"  value="http://samples.openweathermap.org"/>
+	<parameter name="basePath"  value="/data/2.5"/>
+	<parameter name="path"  value="/weather"/>
+	<parameter name="q"  value="London,uk"/>
+    <parameter name="appid" value="b1b15e88fa797225412429c1c50c122a1"/>
+	<test name="Weather coordinates equals to">
+        <parameter name="lon"  value="-0.13"/>
+        <parameter name="lat"  value="51.51"/>
+        <classes>
+            <class name="com.newgistics.tests.api.WeatherTest">
+                <methods>
+                    <include name="coordinatesEqualsTo" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+	<test name="Weather temperature less than">
+        <parameter name="temp"  value="315"/>
+        <classes>
+            <class name="com.newgistics.tests.api.WeatherTest">
+                <methods>
+                    <include name="temperatureLessThan" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

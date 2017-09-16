@@ -1,4 +1,4 @@
-package com.yaypay.driver;
+package com.newgistics.driver;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;

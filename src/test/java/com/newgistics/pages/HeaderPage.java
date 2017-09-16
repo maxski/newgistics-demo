@@ -1,4 +1,4 @@
-package com.yaypay.pages;
+package com.newgistics.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
