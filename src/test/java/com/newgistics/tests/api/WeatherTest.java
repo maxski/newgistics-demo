@@ -2,12 +2,11 @@ package com.newgistics.tests.api;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.Is.is;
 
 /**
- * Created by maxymkr on 9/16/2017.
+ * Weather API tests
  */
 public class WeatherTest extends APITest {
 
@@ -38,10 +37,11 @@ public class WeatherTest extends APITest {
         Float temperature = given()
                 .spec(request)
                 .get()
-            .then()
+        .then()
                 .log().body()
-            .extract().
+        .extract().
                 path("main.temp");
+
         Assert.assertTrue(temperature.compareTo(temp) < 0);
     }
 }
