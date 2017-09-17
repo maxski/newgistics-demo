@@ -43,13 +43,15 @@ public class Chrome {
         Configuration.browser = CHROME;
         System.setProperty(CHROME_EXEC_PROPERTY, CHROME_EXEC_VALUE);
         System.setProperty(CHROME_OPTIONS_PROPERTY, CHROME_OPTIONS_VALUE);
-        if (userAgent != null && !userAgent.isEmpty()) {
-            Reporter.log("User agent: " + userAgent);
-            initMobileChrome(userAgent);
-        }
+        //if (userAgent != null && !userAgent.isEmpty()) {
+            //Reporter.log("User agent: " + userAgent);
+            //String options = CHROME_OPTIONS_VALUE + ",--user-agent=\"" + userAgent + "\"";
+            //initMobileChrome(userAgent);
+            //System.setProperty(CHROME_OPTIONS_PROPERTY, options);
+        //}
     }
 
-    private void initMobileChrome(String userAgent) {
+/*    private void initMobileChrome(String userAgent) {
         DesiredCapabilities caps = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> mobileEmulation = new HashMap<>();
@@ -58,7 +60,7 @@ public class Chrome {
         options.addArguments(CHROME_OPTIONS_VALUE);
         caps.setCapability(ChromeOptions.CAPABILITY, options);
         setWebDriver(new ChromeDriver(caps));
-    }
+    }*/
 
 }
 
