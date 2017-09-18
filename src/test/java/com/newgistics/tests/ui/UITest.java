@@ -12,11 +12,11 @@ public class UITest {
     protected Chrome browser = new Chrome();
 
     @BeforeTest
-    @Parameters({"url", "size", "user-agent"})
-    public void setUp(String url, String size, @Optional String userAgent) {
+    @Parameters({"url", "width", "height", "user-agent"})
+    public void setUp(String url, String width, String height, @Optional String userAgent) {
         browser.setReportsFolder();
-        browser.setSize(size);
         browser.setMode(userAgent);
+        browser.setSize(width, height);
         browser.openUrl(url);
     }
 

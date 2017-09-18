@@ -7,13 +7,15 @@
 	<parameter name="url"  value="http://www.seleniumframework.com/intermediate-tutorial/override-useragent/"/>
     <test name="Menu mobile test">
         <parameter name="user-agent"  value="Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36"/>
-        <parameter name="size"  value="500x850"/>
+        <parameter name="width"  value="500"/>
+        <parameter name="height"  value="850"/>
         <classes>
             <class name="com.newgistics.tests.ui.mobile.MenuMobileTest"/>
         </classes>
     </test>
     <test name="Menu desktop test">
-        <parameter name="size"  value="1000x850"/>
+        <parameter name="width"  value="1000"/>
+        <parameter name="height"  value="850"/>
         <classes>
             <class name="com.newgistics.tests.ui.desktop.MenuDesktopTest"/>
         </classes>
