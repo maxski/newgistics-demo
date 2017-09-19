@@ -10,14 +10,14 @@
         <parameter name="width"  value="500"/>
         <parameter name="height"  value="850"/>
         <classes>
-            <class name="com.newgistics.tests.ui.mobile.MenuMobileTest"/>
+            <class name="com.newgistics.tests.ui.MenuMobileTest"/>
         </classes>
     </test>
     <test name="Menu desktop test">
         <parameter name="width"  value="1000"/>
         <parameter name="height"  value="850"/>
         <classes>
-            <class name="com.newgistics.tests.ui.desktop.MenuDesktopTest"/>
+            <class name="com.newgistics.tests.ui.MenuDesktopTest"/>
         </classes>
     </test>
 </suite>

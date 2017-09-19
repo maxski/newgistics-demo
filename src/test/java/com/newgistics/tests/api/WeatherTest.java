@@ -1,47 +1,36 @@
 package com.newgistics.tests.api;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.core.Is.is;
+import com.newgistics.data.paths.weather.WeatherRequest;
+import com.newgistics.data.paths.weather.WeatherResponse;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-/**
+/*
  * Weather API tests
  */
 public class WeatherTest extends APITest {
 
-    @Parameters({"path", "q", "appid"})
+    WeatherResponse response;
+
     @BeforeTest
-    public void setUp(String path, String q, String appid) {
-        request
-                .basePath(path)
-                .param("q", q)
-                .param("appid", appid);
+    @Parameters({"q", "appid"})
+    public void setUp(String q, String appid) {
+        WeatherRequest request = new WeatherRequest(q, appid);
+        response = getResponse(defaultSpec, WeatherResponse.class, request.getPath());
     }
 
+    @Test
     @Parameters({"lon", "lat"})
-    @Test
-    public void coordinatesEqualsTo(Float lon, Float lat){
-        given()
-                .spec(request)
-                .get()
-        .then()
-                .log().body()
-                .body("coord.lon", is(lon))
-                .body("coord.lat", is(lat));
+    public void coordinatesEqualsTo(Float lon, Float lat) {
+        assertThat(response.coord.lon).isEqualTo(lon);
+        assertThat(response.coord.lat).isEqualTo(lat);
     }
 
-    @Parameters({"temp"})
     @Test
-    public void temperatureLessThan(Float temp){
-        Float temperature = given()
-                .spec(request)
-                .get()
-        .then()
-                .log().body()
-        .extract().
-                path("main.temp");
-
-        Assert.assertTrue(temperature.compareTo(temp) < 0);
+    @Parameters({"temp"})
+    public void temperatureLessThan(Float temp) {
+        assertThat(response.main.temp).isLessThan(temp);
     }
 }

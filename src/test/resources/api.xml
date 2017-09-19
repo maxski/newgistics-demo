@@ -5,8 +5,8 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
     </listeners>
 	<parameter name="baseUri"  value="http://samples.openweathermap.org"/>
+    <parameter name="basePath"  value="/data/2.5"/>
 	<test name="Weather test">
-        <parameter name="path"  value="/data/2.5/weather"/>
         <parameter name="q"  value="London,uk"/>
         <parameter name="appid" value="b1b15e88fa797225412429c1c50c122a1"/>
         <parameter name="lon"  value="-0.13"/>

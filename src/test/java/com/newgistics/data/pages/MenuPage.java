@@ -1,4 +1,4 @@
-package com.newgistics.pages;
+package com.newgistics.data.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * Menu page
  */
-public abstract class MenuPage extends AbstractPage {
+public class MenuPage extends Page {
 
     public MenuPage() {
         verifyOpened(getParentElement());

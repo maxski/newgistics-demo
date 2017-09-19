@@ -1,16 +1,17 @@
-package com.newgistics.pages;
+package com.newgistics.data.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.testng.Reporter;
+
 import static com.codeborne.selenide.Condition.visible;
 
 /**
  * Parent page
  * Represents functionality shared across all pages
  */
-public abstract class AbstractPage {
+public abstract class Page {
     private static final int LOAD_TIMEOUT = 60000;
     private static final String VERIFY_LOG = "Verify element%s %s%s %s [%s]";
 
@@ -18,23 +19,23 @@ public abstract class AbstractPage {
         elementIs(element, visible, LOAD_TIMEOUT);
     }
 
-    protected void elementIs(SelenideElement element, Condition condition, long timeout) {
+    public void elementIs(SelenideElement element, Condition condition, long timeout) {
         log(false, false, condition, "in " + timeout + "ms timeout"
                 , element.getSearchCriteria());
         element.waitUntil(condition, timeout);
     }
 
-    protected void elementIs(SelenideElement element, Condition condition) {
+    public void elementIs(SelenideElement element, Condition condition) {
         log(false, false, condition, "", element.getSearchCriteria());
         element.should(condition);
     }
 
-    protected void elementIsNot(SelenideElement element, Condition condition) {
+    public void elementIsNot(SelenideElement element, Condition condition) {
         log(false, true, condition, "", element.getSearchCriteria());
         element.shouldNot(condition);
     }
 
-    protected void elementsIs(ElementsCollection collection, Condition condition) {
+    public void elementsIs(ElementsCollection collection, Condition condition) {
         String search = collection.first().getSearchCriteria();
         log(true, false, condition, "", search.substring(0, search.length() - 3));
         collection.filter(condition).shouldHaveSize(collection.size());
